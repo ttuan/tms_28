@@ -1,2 +1,13 @@
 en:
-  hello: "Hello world"
+  static_pages:
+    framgia: Framgia Training System
+    home: Home
+    help: Help
+    login: Log in
+    about: About
+    contact: Contact
+    news: News
+    home_welcome: This is the home page for the Framgia Training System 
+    author: Framgia
+    the: The
+    by: by
