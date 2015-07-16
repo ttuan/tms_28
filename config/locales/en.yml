@@ -11,3 +11,10 @@ en:
     author: Framgia
     the: The
     by: by
+  registrations:
+    signup: "Sign up"
+    characters_min: "characters minimum"
+  session:
+    login: "Log in"
+    forgot: "Forgot your password?"
+    logout: "Log out"
