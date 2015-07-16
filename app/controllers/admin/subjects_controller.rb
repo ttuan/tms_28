@@ -14,9 +14,23 @@ class Admin::SubjectsController < ApplicationController
     end
   end
 
+  def edit
+    @subject = Subject.find params[:id]
+  end
+
+  def update
+    @subject = Subject.find params[:id]
+    if @subject.update_attributes subject_params
+      flash.now[:success] = t "subjects.subject_updated"
+      redirect_to admin_subjects_path 
+    else
+      render "edit"
+    end
+  end
+
   private
   def subject_params
-    params.require(:subject).permit :name, :description, :day_work,
+    params.require(:subject).permit :id, :name, :description, :day_work,
       tasks_attributes: [:id, :name, :_destroy, :description]
   end
 end
