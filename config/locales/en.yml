@@ -24,3 +24,12 @@ en:
     email: "Email"
     edit: "Edit Profile"
     update_danger: "You must log in first!"
+  subjects:
+    new_subject: New Subject
+    create_subject: Create subject
+    subject_success: Create subject success
+    add_other_task: Add other task
+    remove_task: Remove task
+    tasks: Tasks
+    name: Name
+    description: Description

@@ -3,6 +3,12 @@ Rails.application.routes.draw do
   get "help"    => "static_pages#help"
   get "about"   => "static_pages#about"
   get "contact" => "static_pages#contact"
+
   devise_for :users
+
   resources :users, only: [:show, :edit]
+
+  namespace :admin do
+    resources :subjects
+  end
 end

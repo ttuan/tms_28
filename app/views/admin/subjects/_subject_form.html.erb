@@ -1,0 +1,19 @@
+<%= form_for [:admin, @subject] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "form-control" %>
+  <%= f.label :description %>
+  <%= f.text_area :description, class: "form-control" %>
+
+  <%= f.label :day_work %>
+  <%= f.text_field :day_work, class: "form-control" %>
+
+  <%= t "tasks" %>
+  <table>   
+    <%= f.fields_for :tasks do |builder| %>
+      <%= render "task_fields", f: builder %>
+    <% end %> 
+  </table>
+
+  <p><%= link_to_add_fields t("subjects.add_other_task"), f, :tasks %></p>
+  <%= f.submit t("subjects.create_subject"), class: "btn btn-primary" %>
+<% end %>
