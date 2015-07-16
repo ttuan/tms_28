@@ -18,3 +18,9 @@ en:
     login: "Log in"
     forgot: "Forgot your password?"
     logout: "Log out"
+  user:
+    profile: "Profile"
+    name: "Name"
+    email: "Email"
+    edit: "Edit Profile"
+    update_danger: "You must log in first!"

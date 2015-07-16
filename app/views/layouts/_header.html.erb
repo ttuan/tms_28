@@ -5,7 +5,11 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to t("static_pages.home"), root_path %></li>
         <li><%= link_to t("static_pages.help"), help_path %></li>
-        <li><%= link_to t("static_pages.login"), new_user_session_path %></li>
+        <% unless user_signed_in? %>
+          <li><%= link_to t("session.login"), new_user_session_path %></li>
+        <% else %>
+          <li><%= link_to t("session.logout"), destroy_user_session_path, method: :delete %></li>
+        <% end %>
       </ul>
     </nav>
   </div>
