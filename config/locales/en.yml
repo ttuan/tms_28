@@ -43,3 +43,9 @@ en:
     description: Description
     edit_subject: Edit subject
     subject_updated: Subject updated
+  course:
+    created_course: Created course
+    create_course_failed: Create course failed
+    create_course: Create course
+    new_course: New course
+    course: Course

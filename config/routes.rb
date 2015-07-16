@@ -9,5 +9,6 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :subjects
+    resources :courses, only: [:new, :create, :show]
   end
 end
