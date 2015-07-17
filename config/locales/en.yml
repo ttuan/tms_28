@@ -47,5 +47,9 @@ en:
     created_course: Created course
     create_course_failed: Create course failed
     create_course: Create course
+    updated_course: Updated course
+    update_course_failed: Update course failed
+    edit_course: Edit course
     new_course: New course
     course: Course
+    save_changes: Save changes

@@ -11,11 +11,15 @@
         <%= f.label :subject_ids, subject.name %>
       </div>
       <div class="col-md-6">
-        <%= f.check_box :subject_ids, {name: "course[subject_ids][]",
-          checked: @course.subjects.include?(subject)}, subject.id, nil %>
+        <%= check_box_tag :subject_ids, subject.id, 
+          @course.subjects.include?(subject), name: "course[subject_ids][]" %>
       </div>
     </div>
   <% end %>
 
-  <%= f.submit t("course.create_course"), class: "btn btn-primary" %>
+  <% if @course.save %>
+    <%= f.submit t("course.save_changes"), class: "btn btn-primary" %>
+  <% else %>
+    <%= f.submit t("course.create_course"), class: "btn btn-primary" %>
+  <% end %>
 <% end %>
