@@ -24,6 +24,14 @@ en:
     email: "Email"
     edit: "Edit Profile"
     update_danger: "You must log in first!"
+    confirmation: "Confirmation"
+    update: "Update"
+    update_success: "You profile has been updated!"
+    updated_fail: "Fail to update!"
+    update_image: "Update image"
+  flash:
+    form_contain: "The form contains"
+    error: "error"
   subjects:
     new_subject: New Subject
     create_subject: Submit

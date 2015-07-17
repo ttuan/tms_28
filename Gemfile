@@ -14,6 +14,9 @@ gem "bootstrap-will_paginate"
 gem "faker"
 gem "rails_config"
 gem "devise"
+gem "carrierwave"
+gem "mini_magick"
+gem "fog"
 
 group :development, :test do
   gem "byebug"

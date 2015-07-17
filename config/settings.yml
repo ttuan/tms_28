@@ -1,2 +1,9 @@
 image_size: 50
 avatar_size: 100
+avatar_size_edit: 200
+image_type_accept: image/jpeg,image/gif,image/png
+image_type:
+  - jpg
+  - jpeg
+  - gif
+  - png

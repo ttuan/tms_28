@@ -1,9 +1,25 @@
 class UsersController < ApplicationController
   before_action :init_user, only: [:show, :edit]
-  before_action :correct_user, only: [:edit]
+  before_action :correct_user, only: [:edit, :update]
   before_action :authenticate_user!
   
+  def update
+    if @user.update_attributes user_params
+      sign_in @user, bypass: true
+      flash[:success] = t "user.update_success"
+      redirect_to @user
+    else
+      flash.now[:danger] = t "user.updated_fail"
+      render "edit"
+    end
+  end
+
   private
+  def user_params
+    params.require(:user).permit :name, :email, :password,
+      :password_confirmation, :avatar
+  end
+
   def init_user
     @user = User.find params[:id]
   end
