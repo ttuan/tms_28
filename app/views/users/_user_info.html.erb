@@ -7,7 +7,9 @@
     </aside>
   </div>
   <h1><%= t "user.profile" %></h1>
-  <%= link_to t("user.edit"), edit_user_path(@user) %>    
+  <% if current_user? @user %>
+    <%= link_to t("user.edit"), edit_user_path(@user) %>
+  <% end %>    
   <h1><%= t "user.name" %> : <%= @user.name %></h1>
   <h1><%= t "user.email" %> : <%= @user.email %></h1>
 </div>

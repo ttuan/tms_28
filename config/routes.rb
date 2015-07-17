@@ -5,8 +5,7 @@ Rails.application.routes.draw do
   get "contact" => "static_pages#contact"
 
   devise_for :users
-
-  resources :users, only: [:show, :edit]
+  resources :users, except: [:index, :create, :new]
 
   namespace :admin do
     resources :subjects
