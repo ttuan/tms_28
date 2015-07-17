@@ -1,6 +1,6 @@
 class Admin::CoursesController < ApplicationController
   before_action :get_all_subject, except: [:show, :destroy]
-  before_action :init_course, only: [:edit, :update, :destroy]
+  before_action :init_course, only: [:edit, :update, :destroy, :show]
 
   def new
     @course = Course.new
@@ -25,6 +25,11 @@ class Admin::CoursesController < ApplicationController
       flash.now[:danger] = t "course.update_course_failed"
       render "edit"
     end
+  end
+
+  def show
+    @course_subjects = @course.course_subjects
+    @users = @course.users
   end
 
   private

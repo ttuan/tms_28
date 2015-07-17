@@ -1,1 +1,43 @@
 <% provide :title, t("course.course") %>
+
+<h1><%= @course.name %></h1>
+
+<h2><%= t "course.list_subjects" %></h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <% @course_subjects.each do |course_subject| %>
+        <th>
+          <%= course_subject.subject.name %>
+          <br>
+          <% if course_subject.active == nil %>
+            <%= t "course.not_active" %>
+          <% elsif course_subject.active? %>
+            <%= t "course.finish" %>
+          <% else %>
+            <%= t "course.active" %>
+          <% end %>
+        </th>
+      <% end %>
+    </tr>
+  </thead>
+</table>
+
+<h2><%= t "course.supervisor" %></h2>
+<% @users.each do |user| %>
+  <% if user.supervisor? %>
+    <ul><li><%= link_to user.name, user_path(user) %></li></ul>
+  <% end %>
+<% end %>
+<br>
+
+<h2><%= t "course.list_users" %></h2>
+<% @users.each do |user| %>
+  <% unless user.supervisor? %>
+    <ul><li><%= link_to user.name, user_path(user) %></li></ul>
+  <% end %>   
+<% end %>
+
+<%= link_to t("course.edit"), edit_admin_course_path(@course), class: "btn btn-primary" %>
+<%= link_to t("course.delete"), [:admin, @course], method: :delete,
+  data: {confirm: t("course.you_sure")}, class: "btn btn-primary" %>
