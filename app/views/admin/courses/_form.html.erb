@@ -1,0 +1,21 @@
+<%= form_for [:admin, @course] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "form-control" %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description, class: "form-control" %>
+
+  <% @subjects.each do |subject| %>
+    <div class="row">
+      <div class="col-md-6">
+        <%= f.label :subject_ids, subject.name %>
+      </div>
+      <div class="col-md-6">
+        <%= f.check_box :subject_ids, {name: "course[subject_ids][]",
+          checked: @course.subjects.include?(subject)}, subject.id, nil %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= f.submit t("course.create_course"), class: "btn btn-primary" %>
+<% end %>
