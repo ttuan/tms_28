@@ -57,3 +57,13 @@ en:
     start_date: "Start Date"
     end_date: "End Date"
     none_available: "You don't have any active courses" 
+  admin:
+    dashboard: "Admin Dashboard"
+    user:
+      manage: "Manage Users"
+      create: "Create User"
+      all: "All Users"
+    course:
+      manage: "Manage Course"
+      create: "Create New Course"
+      all: "All Courses"
