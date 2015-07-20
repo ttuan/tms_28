@@ -1,4 +1,8 @@
 class Admin::SubjectsController < ApplicationController
+  def show
+     @subject = Subject.find params[:id]
+  end
+
   def new
     @subject = Subject.new
     @task = @subject.tasks.build
@@ -16,6 +20,16 @@ class Admin::SubjectsController < ApplicationController
 
   def edit
     @subject = Subject.find params[:id]
+  end
+
+  def destroy
+    if Subject.find(params[:id]).destroy
+      flash[:success] = t "subject_deleted"
+      redirect_to subjects_url
+    else
+      flash.now[:danger] = t "subject_not_deleted"
+      redirect_to subjects_url
+    end
   end
 
   def update

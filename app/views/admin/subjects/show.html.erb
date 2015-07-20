@@ -1,0 +1,17 @@
+<% provide :title, t("subjects.subject") %>
+<h1><%= t "subjects.subject_information" %></h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= t "subjects.name" %> : <%= @subject.name %><br>
+    <%= t "subjects.description" %> : <%= @subject.description %><br>
+    <%= t "subjects.day_work" %> : <%= @subject.day_work %><br>
+    <ul>
+      <% @subject.tasks.each do |task| %>
+        <li>
+          <%= task.name %>
+          <%= task.description %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
