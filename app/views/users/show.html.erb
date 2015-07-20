@@ -1,2 +1,27 @@
 <% provide :title, @user.name %>
 <%= render "user_info" %>
+
+<div class="row">
+  <div class="col-md-8">
+    <% unless @user_course.nil? %>
+      <h2>
+        <%= t "course.course" %> : <%= @course.name %>
+      </h2>
+      <p>
+        <%= t "course.start_date" %> : <%= @user_course.start_date %>
+      </p>
+      <p>
+        <%= t "course.end_date" %> : <%= @user_course.end_date %>
+      </p>
+      <% @course.subjects.each do |subject| %>
+        <hr>
+        <h2><%= subject.name %></h2>
+        <% subject.tasks.each do |task| %>
+          <li><h3><%= task.name %></h3></li>
+        <% end %>
+      <% end %>
+    <% else %>
+      <h1><%= t "course.none_available" %></h1>
+    <% end %>
+  </div>
+</div>
