@@ -1,0 +1,14 @@
+<table id="user_record"> 
+  <tr id="user-<%= user.id%>">
+    <td><%= link_to user.name, user %></td>
+    <td><%= link_to t("admin.user.delete"), admin_user_path(user), remote: true, method: :delete,
+      data: {confirm: t("admin.user.confirm")} %></td>
+    <td>
+      <%= form_for [:admin, user], remote: true do |f| %>
+        <%= f.hidden_field :supervisor, value: !user.supervisor %>
+        <%= f.submit user.supervisor? ? t("admin.user.set_normal") : t("admin.user.set_admin"), 
+          class: "btn btn-primary small-button" %>
+      <% end %>
+    </td>
+  </tr>
+</table>
