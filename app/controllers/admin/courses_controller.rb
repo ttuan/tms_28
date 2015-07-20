@@ -1,6 +1,11 @@
 class Admin::CoursesController < ApplicationController
   before_action :get_all_subject, except: [:show, :destroy]
   before_action :init_course, only: [:edit, :update, :destroy, :show]
+  before_action :require_admin
+
+  def index
+    @courses = Course.all
+  end
 
   def new
     @course = Course.new
@@ -30,6 +35,16 @@ class Admin::CoursesController < ApplicationController
   def show
     @course_subjects = @course.course_subjects
     @users = @course.users
+  end
+
+  def destroy
+    if @course.destroy
+      flash[:success] = t "course.deleted_course"
+      redirect_to admin_courses_path
+    else
+      flash.now[:danger] = t "course.delete_course_failed"
+      redirect_to admin_course_path @course
+    end
   end
 
   private

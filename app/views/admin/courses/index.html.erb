@@ -1,0 +1,11 @@
+<% provide :title, t("course.all_courses") %>
+
+<h1><%= t "course.all_courses" %></h1>
+<% @courses.each do |course| %>
+  <ul>
+    <li><%= link_to course.name, admin_course_path(course) %></li>
+    <%= link_to t("course.edit"), edit_admin_course_path(course), class: "btn btn-primary" %>
+    <%= link_to t("course.delete"), [:admin, course], method: :delete,
+      data: {confirm: t("course.you_sure")}, class: "btn btn-primary" %>
+  </ul>
+<% end %>
