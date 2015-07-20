@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   load_and_authorize_resource
   
   def show
-    @user_course = @user.user_courses.course_active_by_user.last
+    @user_course = @user.user_courses.course_active.last
     @course = @user_course.course unless @user_course.nil?
   end
   

@@ -1,0 +1,8 @@
+<% provide :title, t("course.course_information") %>
+<%= t "subject_in_course" %>
+
+<ul>
+  <% @user_subjects.each do |user_subject| %>   
+    <li><%= link_to user_subject.subject.name, course_user_subject_path(@course, user_subject) %></li>
+  <% end %>
+</ul>

@@ -1,0 +1,14 @@
+<% provide :title, t("course.course_information") %>
+<%= t "admin.subject_in_course" %>
+
+<%= form_for [@course, @user_subject] do |f| %>
+  <%= f.fields_for :user_tasks do |builder| %>
+    <%= builder.hidden_field :task_id %>
+    <span> 
+      <%= builder.object.task.try :name %>
+    </span>
+    <%= builder.check_box :status, disabled: builder.object.status %>
+  <% end %>
+
+  <%= f.submit t "tasks.update" %>
+<% end %>
