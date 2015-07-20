@@ -5,6 +5,8 @@ class UserSubject < ActiveRecord::Base
   has_many :user_tasks, dependent: :destroy
   has_many :activities, dependent: :destroy
   
+  VALUE = "0"
+
   accepts_nested_attributes_for :user_tasks, allow_destroy: true,
-    reject_if: proc {|attributes| attributes[:status] == "0"}
+    reject_if: proc {|attributes| attributes[:status] == VALUE}
 end

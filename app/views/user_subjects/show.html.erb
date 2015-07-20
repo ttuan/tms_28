@@ -1,14 +1,49 @@
-<% provide :title, t("course.course_information") %>
-<%= t "admin.subject_in_course" %>
+<% provide :title, t("subjects.subject") %>
+<h1><%= @user_subject.subject.name %></h1>
 
-<%= form_for [@course, @user_subject] do |f| %>
-  <%= f.fields_for :user_tasks do |builder| %>
-    <%= builder.hidden_field :task_id %>
-    <span> 
-      <%= builder.object.task.try :name %>
-    </span>
-    <%= builder.check_box :status, disabled: builder.object.status %>
+<div class="left jumbotron">
+  <%= form_for [@course, @user_subject] do |f| %>
+    <div class="row">
+      <%= f.fields_for :user_tasks do |builder| %>
+        <div class="col-xs-6 col-sm-3">
+          <div class="<%= builder.object.status? ? "content" : "none" %>">
+            <span> 
+              <%= builder.hidden_field :task_id %>
+              <%= builder.object.task.try :name %><br>
+              <%= builder.object.task.try :description %><br>
+              <%= builder.check_box :status, disabled: builder.object.status %>
+              <%= t "course.finish" %>
+            </span>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="btn-input">
+      <%= f.submit t("tasks.update"), class: "btn btn-primary" %>
+    </div>
   <% end %>
 
-  <%= f.submit t "tasks.update" %>
-<% end %>
+  <br><%= render "finish_form" %>
+
+  <h3><%= t "subjects.basic_infor" %></h3>
+  <div class="basic-infor">
+    <%= t "course.start_date" %> : <%= @user_subject.created_at %>
+    <br><%= t "course.end_date" %> : <%=  @user_subject.created_at + @user_subject.subject.day_work.days %>
+    <br><%= t "subjects.status" %> : <%= @user_subject.status? ? t("subjects.finished")
+      : t("user.training") %>
+  </div>
+
+  <h3><%= t "subjects.instruction" %></h3>
+  <div class="basic-infor">
+    <%= @user_subject.subject.description %>
+  </div>
+
+  <h3><%= t "activity.activity_log" %></h3>
+  <div class="basic-infor">
+    <% @user_subject.activities.each do |activity| %>
+      <%= activity.content %>
+      <%= activity.created_at %><br>
+    <% end %>
+  </div>
+</div>

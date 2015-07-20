@@ -105,7 +105,6 @@ footer {
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
-  width: 100%;
   margin-bottom: 15px;
   @include box_sizing;
 }
@@ -201,4 +200,28 @@ activity {
 .status-button {
   margin-left: 500px;
   width: 100px;
+}
+
+.content {
+  text-align: center;
+  background: #e6e4e1; 
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.none {
+  text-align: center;
+  background: #daa520; 
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.btn-input {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.basic-infor {
+  margin-left: 15px
 }

@@ -38,6 +38,7 @@ en:
     form_contain: "The form contains"
     error: "error"
   subjects:
+    subject: Subject
     new_subject: New Subject
     create_subject: Submit
     subject_success: Create subject success
@@ -60,6 +61,14 @@ en:
     all_courses: All courses
     you_sure: You sure?
     all_subjects: All subjects
+    finish: Finish
+    finish_subject: Finish Subject
+    finished: Finished
+    subject_finised: Subject finished
+    subject_finish_failed: Subject finish failed
+    basic_infor: Basic information
+    status: Status
+    instruction: Instruction
   course:
     created_course: Created course
     create_course_failed: Create course failed
@@ -142,3 +151,4 @@ en:
   assign_trainees:
     success: "Change member of a course successfully"
     fail: "Fails to change member of course"
+    activity_log: Activity log
