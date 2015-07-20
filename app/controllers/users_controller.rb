@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :init_user, only: [:show, :edit]
-  before_action :correct_user, only: [:edit, :update]
   before_action :authenticate_user!
+  load_and_authorize_resource
   
   def show
     @user_course = @user.user_courses.course_active_by_user.last
@@ -27,10 +27,5 @@ class UsersController < ApplicationController
 
   def init_user
     @user = User.find params[:id]
-  end
-
-  def correct_user
-    @user = User.find params[:id]
-    redirect_to root_url unless current_user? @user
   end
 end
