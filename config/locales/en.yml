@@ -53,3 +53,7 @@ en:
     new_course: New course
     course: Course
     save_changes: Save changes
+    course: "Course"
+    start_date: "Start Date"
+    end_date: "End Date"
+    none_available: "You don't have any active courses" 
