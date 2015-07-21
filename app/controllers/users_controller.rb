@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :init_user, only: [:show, :edit]
   before_action :authenticate_user!
   load_and_authorize_resource
   
@@ -23,9 +22,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit :name, :email, :password,
       :password_confirmation, :avatar
-  end
-
-  def init_user
-    @user = User.find params[:id]
   end
 end

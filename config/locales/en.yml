@@ -78,6 +78,9 @@ en:
       del_fail: "Fail to delete user"
       update_success: "Set role for user successful"
       update_fail: "Fail to update role for user"
+      create_success: "Create user successfully!"
+      create_fail: "Fail to create"
+      new: "New User"
     course:
       manage: "Manage Course"
       create: "Create New Course"
