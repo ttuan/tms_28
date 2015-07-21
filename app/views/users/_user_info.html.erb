@@ -8,6 +8,12 @@
   </div>
   <h1><%= t "user.profile" %></h1>
   <%= link_to t("user.edit"), edit_user_path(@user) if can? :edit, @user %>
+      
+  <% if can? :destroy, @user %>
+    <%= link_to t("admin.user.delete"), admin_user_path(@user), method: :delete,
+      data: {confirm: t("admin.user.confirm")} %>
+  <% end %>
+  
   <h1><%= t "user.name" %> : <%= @user.name %></h1>
   <h1><%= t "user.email" %> : <%= @user.email %></h1>
 </div>

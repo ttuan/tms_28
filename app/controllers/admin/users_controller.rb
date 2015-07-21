@@ -1,13 +1,28 @@
 class Admin::UsersController < ApplicationController
   before_action :require_admin
-  before_action :init_user, only: [:update, :destroy]
+  load_and_authorize_resource
 
   def index
     @users = User.paginate page: params[:page], per_page: Settings.per_page
   end
 
+  def new
+    @user = User.new
+  end
+
+  def create
+    @user = User.new user_params
+    if @user.save
+      flash[:success] = t "admin.user.create_success"
+      redirect_to @user
+    else
+      flash.now[:danger] = t "admin.user.create_fail"
+      render "new"
+    end
+  end
+
   def update
-    if @user.update_attributes user_params
+    if @user.update_attributes set_admin_params
       flash[:success] = t "admin.user.update_success"
     else
       flash.now[:danger] = t "admin.user.update_fail"
@@ -31,11 +46,12 @@ class Admin::UsersController < ApplicationController
   end
 
   private
-  def user_params
+  def set_admin_params
     params.require(:user).permit :supervisor
   end
 
-  def init_user
-    @user = User.find params[:id]
+  def user_params
+    params.require(:user).permit :name, :email, :password,
+      :password_confirmation, :supervisor
   end
 end
