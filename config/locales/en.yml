@@ -71,6 +71,11 @@ en:
     finish: Finish
     list_users: List Users
     list_subjects: List Subjects
+    deleted_course: Delete course
+    delete_course_failed: Delete course failed
+    all_courses: All courses
+    delete: Delete
+    you_sure: You sure?
   admin:
     dashboard: "Admin Dashboard"
     user:
