@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-  root "static_pages#home"
+  root "courses#show"
   get "help"    => "static_pages#help"
   get "about"   => "static_pages#about"
   get "contact" => "static_pages#contact"
 
   devise_for :users
   resources :users, except: [:index, :create, :new]
-  resources :courses do
+  resources :courses, only: :show do
     resources :user_subjects, only: [:show, :update]
   end
   
