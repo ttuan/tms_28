@@ -29,6 +29,7 @@ en:
     update_success: "You profile has been updated!"
     updated_fail: "Fail to update!"
     update_image: "Update image"
+    delete: "Delete User"
   flash:
     form_contain: "The form contains"
     error: "error"
@@ -68,6 +69,15 @@ en:
       manage: "Manage Users"
       create: "Create User"
       all: "All Users"
+      set_normal: "Set user as normal user"
+      set_admin: "Set user as admin"
+      delete: "Delete"
+      set_role: "Set Role for user"
+      confirm: "You sure?"
+      del_success: "Delete user successfully"
+      del_fail: "Fail to delete user"
+      update_success: "Set role for user successful"
+      update_fail: "Fail to update role for user"
     course:
       manage: "Manage Course"
       create: "Create New Course"
