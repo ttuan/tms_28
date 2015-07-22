@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     root "dashboards#index"
     resources :users
     resources :subjects
-    resources :courses
+    resources :courses do 
+      resources :user_courses
+    end
   end
 end

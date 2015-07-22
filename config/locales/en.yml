@@ -102,3 +102,8 @@ en:
       manage: "Manage Course"
       create: "Create New Course"
       all: "All Courses"
+  user_course:
+    removed_user: Removed user
+    remove_user_failed: Remove user failed
+    you_sure: You sure?
+    remove: Remove

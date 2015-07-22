@@ -24,7 +24,8 @@
 </table>
 
 <h2><%= t "course.supervisor" %></h2>
-<% @users.each do |user| %>
+<% @user_courses.each do |user_course| %>
+  <% user = user_course.user %>
   <% if user.supervisor? %>
     <ul><li><%= link_to user.name, user_path(user) %></li></ul>
   <% end %>
@@ -32,10 +33,16 @@
 <br>
 
 <h2><%= t "course.list_users" %></h2>
-<% @users.each do |user| %>
+<% @user_courses.each do |user_course| %>
+  <% user = user_course.user %>
   <% unless user.supervisor? %>
-    <ul><li><%= link_to user.name, user_path(user) %></li></ul>
-  <% end %>   
+    <ul>
+      <li><%= link_to user.name, user_path(user) %></li>
+      <%= link_to t("user_course.remove"),
+        admin_course_user_course_path(@course, user_course), method: :delete,
+        data: {confirm: t("user_course.you_sure")}, class: "btn btn-primary" %>
+    </ul>
+  <% end %>
 <% end %>
 
 <%= link_to t("course.edit"), edit_admin_course_path(@course), class: "btn btn-primary" %>
