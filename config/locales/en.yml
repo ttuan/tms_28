@@ -94,6 +94,10 @@ en:
       create_success: "Create user successfully!"
       create_fail: "Fail to create"
       new: "New User"
+      remove: "Remove"
+      add_condition: "Add Condition"
+      sort: "Sort"
+      search: "Search"
     course:
       manage: "Manage Course"
       create: "Create New Course"
