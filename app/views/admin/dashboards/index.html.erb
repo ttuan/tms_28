@@ -15,5 +15,12 @@
       <%= link_to t("admin.course.all"), admin_courses_path, 
         class: "btn btn-primary btn-lg width150" %>&nbsp;&nbsp;
     </h1>
+    <h1>
+      <%= t "admin.subject.manage" %>
+      <%= link_to t("admin.subject.create"), new_admin_subject_path,
+        class: "btn btn-primary btn-lg width150" %>&nbsp;&nbsp;
+      <%= link_to t("admin.subject.all"), admin_subjects_path, 
+        class: "btn btn-primary btn-lg width150" %>&nbsp;&nbsp;
+    </h1>
   </div>
 </div>

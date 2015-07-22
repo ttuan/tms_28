@@ -1,6 +1,9 @@
 class Admin::SubjectsController < ApplicationController
-  def show
-     @subject = Subject.find params[:id]
+  before_action :init_subject, only: [:show, :edit, :update, :destroy]
+  before_action :require_admin
+
+  def index
+    @subjects = Subject.all
   end
 
   def new
@@ -11,33 +14,29 @@ class Admin::SubjectsController < ApplicationController
   def create
     @subject = Subject.new subject_params
     if @subject.save
-      flash.now[:success] = t "subjects.subject_success"
-      redirect_to admin_subjects_path 
+      flash[:success] = t "subjects.subject_success"
+      redirect_to admin_subject_path @subject
     else
+      flash.now[:danger] = t "subjects.subject_not_success"
       render "new"
     end
   end
 
-  def edit
-    @subject = Subject.find params[:id]
-  end
-
   def destroy
-    if Subject.find(params[:id]).destroy
-      flash[:success] = t "subject_deleted"
-      redirect_to subjects_url
+    if @subject.destroy
+      flash[:success] = t "subjects.subject_deleted"
     else
-      flash.now[:danger] = t "subject_not_deleted"
-      redirect_to subjects_url
+      flash.now[:danger] = t "subjects.subject_not_deleted"
     end
+    redirect_to admin_subjects_url
   end
 
   def update
-    @subject = Subject.find params[:id]
     if @subject.update_attributes subject_params
-      flash.now[:success] = t "subjects.subject_updated"
-      redirect_to admin_subjects_path 
+      flash[:success] = t "subjects.subject_updated"
+      redirect_to admin_subject_path @subject 
     else
+      flash.now[:danger] = t "subjects.subject_not_updated"
       render "edit"
     end
   end
@@ -46,5 +45,9 @@ class Admin::SubjectsController < ApplicationController
   def subject_params
     params.require(:subject).permit :id, :name, :description, :day_work,
       tasks_attributes: [:id, :name, :_destroy, :description]
+  end
+
+  def init_subject
+    @subject = Subject.find params[:id]
   end
 end

@@ -37,6 +37,7 @@ en:
     new_subject: New Subject
     create_subject: Submit
     subject_success: Create subject success
+    subject_not_success: Create subject success failed
     add_other_task: Add other task
     remove_task: Remove task
     tasks: Tasks
@@ -49,6 +50,12 @@ en:
     day_work: Day work
     subject_deleted: Subject deleted
     subject_not_deleted: Subject not deleted
+    subject_not_updated: Subject not updated
+    edit: Edit
+    delete: Delete
+    all_courses: All courses
+    you_sure: You sure?
+    all_subjects: All subjects
   course:
     created_course: Created course
     create_course_failed: Create course failed
@@ -102,6 +109,10 @@ en:
       manage: "Manage Course"
       create: "Create New Course"
       all: "All Courses"
+    subject:
+      manage: "Manage Subject"
+      create: "Create New Subject"
+      all: "All Subjects"
   user_course:
     removed_user: Removed user
     remove_user_failed: Remove user failed
