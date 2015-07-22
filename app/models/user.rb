@@ -8,4 +8,7 @@ class User < ActiveRecord::Base
   has_many :courses, through: :user_courses
   
   mount_uploader :avatar, AvatarUploader
+
+  scope :avaiable_to_add, ->course_id{where "id NOT IN (SELECT user_id FROM User_Courses WHERE active = 'true' 
+    AND course_id != ?)", course_id}
 end

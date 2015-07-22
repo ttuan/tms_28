@@ -92,6 +92,7 @@ en:
     activities_in_course: Activities in course
     ago: ago
     line: --------
+    add_user: Add Users to this Course
   admin:
     dashboard: "Admin Dashboard"
     user:
@@ -129,6 +130,8 @@ en:
     remove: Remove
     course_information: Course information
     subject_in_course: Subject in course
+    update_fail: "Fails to update course"
+    add_users: "Add Users"
   tasks:
     task_updated: Task updated
     update_task_failed: Update task failed
@@ -136,3 +139,6 @@ en:
   activity:
     activity: "Activities"
     ago: "ago"
+  assign_trainees:
+    success: "Change member of a course successfully"
+    fail: "Fails to change member of course"
