@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 20150716012943) do
     t.datetime "updated_at",     null: false
   end
 
+  add_index "user_subjects", ["course_id"], name: "index_user_subjects_on_course_id"
   add_index "user_subjects", ["subject_id"], name: "index_user_subjects_on_subject_id"
   add_index "user_subjects", ["user_course_id"], name: "index_user_subjects_on_user_course_id"
   add_index "user_subjects", ["user_id"], name: "index_user_subjects_on_user_id"

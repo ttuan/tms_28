@@ -1,0 +1,20 @@
+<% provide :title, t("course_subject.subject") %>
+<h1><%= t "course_subject.subject_information" %></h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= t "course_subject.name" %> : <%= @subject.name %><br>
+    <%= t "course_subject.description" %> : <%= @subject.description %><br>
+    <%= t "course_subject.day_work" %> : <%= @subject.day_work %><br>
+    <% if @course_subject.active.nil? %>
+      <%= t "course_subject.status" %> : <%= t "course_subject.not_active" %><br>
+    <% elsif @course_subject.active? %>
+      <%= t "course_subject.status" %> : <%= t "course_subject.finish" %><br>
+    <% else %>
+      <%= t "course_subject.status" %> : <%= t "course_subject.active" %><br>
+    <% end %>
+  </div>
+</div>
+
+<%= render "form_button" %>
+<%= link_to t("course_subject.back"), [:admin, @course],
+  class: "btn btn-primary" %>

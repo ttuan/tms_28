@@ -1,0 +1,12 @@
+<% if @course_subject.active.nil? %>
+  <%= link_to t("course_subject.start"),
+    admin_course_course_subject_active_path(@course, @course_subject,
+    Settings.start), method: :patch, class: "btn btn-primary" %>
+<% elsif @course_subject.active? %>
+  <%= link_to t("course_subject.finished"), [:admin, @course],
+    class: "btn btn-default" %>
+<% else %>
+  <%= link_to t("course_subject.finish"),
+    admin_course_course_subject_active_path(@course, @course_subject,
+    Settings.finish), method: :patch, class: "btn btn-danger" %>
+<% end %>

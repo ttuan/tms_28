@@ -19,6 +19,9 @@ Rails.application.routes.draw do
     resources :courses do 
       resources :user_courses, only: :destroy
       resource :assign_trainees, only: [:edit, :update]
+      resources :course_subjects, only: [:show, :update] do
+        patch "/:active" => "course_subjects#update", as: "active"
+      end
     end
   end
 end

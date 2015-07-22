@@ -1,0 +1,11 @@
+<% if course_subject.active.nil? %> 
+  <%= link_to course_subject.subject.name,
+    [:admin, @course, course_subject], class: "btn btn-default" %>
+<% elsif course_subject.active? %>
+  <%= link_to course_subject.subject.name,
+    [:admin, @course, course_subject], class: "btn btn-danger" %>
+<% else %>
+  <%= link_to course_subject.subject.name,
+    [:admin, @course, course_subject], class: "btn btn-primary" %> 
+<% end %>
+<%= t "course_subject.line" %>
