@@ -76,6 +76,7 @@ en:
     all_courses: All courses
     delete: Delete
     you_sure: You sure?
+    course_information: Course information
   admin:
     dashboard: "Admin Dashboard"
     user:
@@ -107,3 +108,9 @@ en:
     remove_user_failed: Remove user failed
     you_sure: You sure?
     remove: Remove
+    course_information: Course information
+    subject_in_course: Subject in course
+  tasks:
+    task_updated: Task updated
+    update_task_failed: Update task failed
+    update: Update

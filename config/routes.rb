@@ -6,7 +6,10 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :users, except: [:index, :create, :new]
-
+  resources :courses do
+    resources :user_subjects, only: [:show, :update]
+  end
+  
   namespace :admin do
     root "dashboards#index"
     resources :users
