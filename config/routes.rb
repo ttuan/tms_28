@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :users
     resources :subjects
     resources :courses do 
-      resources :user_courses
+      resources :user_courses, only: :destroy
     end
   end
 end
