@@ -4,24 +4,54 @@
 <div class="row">
   <div class="col-md-8">
     <% unless @user_course.nil? %>
-      <h2>
-        <%= t "course.course" %> : <%= @course.name %>
-      </h2>
-      <p>
-        <%= t "course.start_date" %> : <%= @user_course.start_date %>
-      </p>
-      <p>
-        <%= t "course.end_date" %> : <%= @user_course.end_date %>
-      </p>
-      <% @course.subjects.each do |subject| %>
+      <div class="row">
+        <div class="col-md-6">
+          <h1 class="profile course_color">
+            <%= t "course.course" %> : <%= @user_course.course.name %>
+          </h1>
+        </div>
+        <div class="col-md-2">
+          <%= link_to t("user.training"), "", class: "btn btn-danger big-button" %>
+        </div>
+      </div>
+
+      <p><%= t "course.start_date" %> : <%= @user_course.start_date %></p>
+      <p><%= t "course.end_date" %> : <%= @user_course.end_date %></p>
+
+      <% @user_subjects.each do |user_subject| %>  
         <hr>
-        <h2><%= subject.name %></h2>
-        <% subject.tasks.each do |task| %>
-          <li><h3><%= task.name %></h3></li>
-        <% end %>
+        <h1 class="profile course-detail"><%= user_subject.subject.name %></h1>
+        <div>
+          <button class="hide-btn"><%= t "user.hide" %></button>
+          <button class="show-btn"><%= t "user.show" %></button>
+
+          <% user_subject.subject.tasks.each do |task| %>
+            <h3>
+              <%= task.name %>
+              <% if user_subject.user_tasks.pluck(:task_id).include? task.id %>
+                <%= link_to t("user.finish"), "", class: "btn btn-primary status-button" %>
+              <% else %>
+                <%= link_to t("user.training"), "", class: "btn btn-danger status-button" %>
+              <% end %>
+            </h3>
+          <% end %>
+        </div>
       <% end %>
     <% else %>
       <h1><%= t "course.none_available" %></h1>
+    <% end %>     
+  </div>
+
+  <div class="col-md-4">
+    <br><br>
+    <h1><%= t "activity.activity" %></h1>
+    <br>
+    <% @activities.each do |activity| %>
+      <hr>
+      <li>
+        <h3><%= activity.content %></h3>
+        <h5><%= time_ago_in_words activity.created_at %><%= t "activity.ago" %></h5>
+      </li>
     <% end %>
   </div>
 </div>
