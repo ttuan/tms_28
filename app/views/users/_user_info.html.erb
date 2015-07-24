@@ -6,14 +6,18 @@
       </section>
     </aside>
   </div>
-  <h1><%= t "user.profile" %></h1>
-  <%= link_to t("user.edit"), edit_user_path(@user) if can? :edit, @user %>
+  <h1 class="profile">
+    <%= t "user.profile" %>
+  </h1>
+  <%= link_to t("user.edit"), edit_user_path(@user), class: "btn btn-primary" if can? :edit, @user %>
       
   <% if can? :destroy, @user %>
-    <%= link_to t("admin.user.delete"), admin_user_path(@user), method: :delete,
-      data: {confirm: t("admin.user.confirm")} %>
+    <%= link_to t("admin.user.delete"), admin_user_path(@user), class: "btn btn-primary",
+      method: :delete, data: {confirm: t("admin.user.confirm")} %>
   <% end %>
   
-  <h1><%= t "user.name" %> : <%= @user.name %></h1>
-  <h1><%= t "user.email" %> : <%= @user.email %></h1>
+  <h1 class="profile">
+    <%= t "user.name" %> : <%= @user.name %><br>
+    <%= t "user.email" %> : <%= @user.email %>
+  </h1>
 </div>

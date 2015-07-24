@@ -177,3 +177,28 @@ listuser {
 activity {
   border-right: 1px solid $gray-medium-light;
 }
+
+.profile {
+  text-align: left;
+}
+
+.course_color {
+  font-size: 2.5em;
+  color: green;
+}
+
+.big-button {
+  width: 150px;
+  height: 50px;
+  font-size: 2em;
+}
+
+.course-detail {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.status-button {
+  margin-left: 500px;
+  width: 100px;
+}

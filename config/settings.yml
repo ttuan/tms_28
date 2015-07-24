@@ -1,6 +1,6 @@
 image_size: 50
 avatar_size_small: 30
-avatar_size: 100
+avatar_size: 200
 avatar_size_edit: 200
 image_type_accept: image/jpeg,image/gif,image/png
 image_type:
@@ -9,3 +9,4 @@ image_type:
   - gif
   - png
 per_page: 10
+limit_activities: 10

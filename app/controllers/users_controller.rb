@@ -4,7 +4,8 @@ class UsersController < ApplicationController
   
   def show
     @user_course = @user.user_courses.course_active.last
-    @course = @user_course.course unless @user_course.nil?
+    @user_subjects = @user_course.user_subjects unless @user_course.nil?
+    @activities = @user.activities.last Settings.limit_activities
   end
   
   def update

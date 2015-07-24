@@ -30,6 +30,10 @@ en:
     updated_fail: "Fail to update!"
     update_image: "Update image"
     delete: "Delete User"
+    training: "Training"
+    finish: "Finish"
+    hide: "Hide"
+    show: "Show"
   flash:
     form_contain: "The form contains"
     error: "error"
@@ -129,3 +133,6 @@ en:
     task_updated: Task updated
     update_task_failed: Update task failed
     update: Update
+  activity:
+    activity: "Activities"
+    ago: "ago"
