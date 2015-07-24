@@ -4,6 +4,7 @@ class CreateActivities < ActiveRecord::Migration
       t.string :content
       t.references :course, index: true, foreign_key: true
       t.references :user, index: true, foreign_key: true
+      t.references :user_subject, index: true, foreign_key: true
 
       t.timestamps null: false
     end
