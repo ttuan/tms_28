@@ -84,6 +84,10 @@ en:
     delete: Delete
     you_sure: You sure?
     course_information: Course information
+    all_member: All members
+    activities_in_course: Activities in course
+    ago: ago
+    line: --------
   admin:
     dashboard: "Admin Dashboard"
     user:

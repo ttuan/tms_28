@@ -45,7 +45,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1.2em;
+  font-size: 2em;
   letter-spacing: -1px;
   margin-bottom: 30px;
   font-weight: normal;
@@ -155,4 +155,25 @@ input {
 
 .sbutton {
   width: 200px;
+}
+
+subject {
+  padding-bottom: 60px;
+  border-right: 1px solid $gray-medium-light;
+  text-align: center;
+}
+
+description {
+  padding-bottom: 100px;
+  border-right: 1px solid $gray-medium-light;
+  border-bottom: 1px solid $gray-medium-light;
+  font-size: 20px;
+}
+
+listuser {
+  height: 800px;
+}
+
+activity {
+  border-right: 1px solid $gray-medium-light;
 }
