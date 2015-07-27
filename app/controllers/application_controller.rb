@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include UsersHelper
+  include ActivitiesHelper
 
   rescue_from CanCan::AccessDenied do |exception|
     flash[:alert] = exception.message

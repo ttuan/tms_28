@@ -10,3 +10,4 @@ image_type:
   - png
 per_page: 10
 limit_activities: 10
+complete_task: Complete task:
