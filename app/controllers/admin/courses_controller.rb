@@ -2,6 +2,7 @@ class Admin::CoursesController < ApplicationController
   before_action :get_all_subject, except: [:show, :destroy]
   before_action :init_course, only: [:edit, :update, :destroy, :show]
   before_action :require_admin
+  respond_to :html, :json
 
   def index
     @courses = Course.all
@@ -9,13 +10,14 @@ class Admin::CoursesController < ApplicationController
 
   def new
     @course = Course.new
+    respond_modal_with @course
   end
 
   def create
     @course = Course.new course_params
     if @course.save
       flash[:success] = t "course.created_course"
-      redirect_to admin_course_path @course
+      respond_modal_with @course, location: admin_root_path
     else
       flash.now[:danger] = t "course.create_course_failed"
       render "new"
