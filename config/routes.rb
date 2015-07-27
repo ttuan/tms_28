@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       resources :course_subjects, only: [:show, :update] do
         patch "/:active" => "course_subjects#update", as: "active"
       end
+      patch "/:active" => "active_courses#update", as: "active"
     end
   end
 end

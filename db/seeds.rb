@@ -64,48 +64,14 @@ end
 (1..16).each do |n|
   user = User.find(n)
   user_course1 = user.user_courses.create!(course_id: course1.id, start_date: Time.zone.now, active: true)
-  course1.course_subjects.each do |course_subject|
-    user_course1.user_subjects.create!(user_id: user.id, subject_id: course_subject.subject.id, course_id: course1.id)
-  end
 end
 
 (17..32).each do |n|
   user = User.find(n)
   user_course2 = user.user_courses.create!(course_id: course2.id, start_date: Time.zone.now, active: true)
-  course2.course_subjects.each do |course_subject|
-    user_course2.user_subjects.create!(user_id: user.id, subject_id: course_subject.subject.id, course_id: course2.id)
-  end
 end
 
 (33..48).each do |n|
   user = User.find(n)
   user_course3 = user.user_courses.create!(course_id: course3.id, start_date: Time.zone.now, active: true)
-  course3.course_subjects.each do |course_subject|
-    user_course3.user_subjects.create!(user_id: user.id, subject_id: course_subject.subject.id, course_id: course3.id)
-  end
 end
-
-course1.user_courses.each do |user_course|
-  user = user_course.user
-  content = Faker::Lorem.word
-  5.times do
-   Activity.create!(content: content, user_id: user.id, course_id: course1.id)
-  end  
-end
-
-course2.user_courses.each do |user_course|
-  user = user_course.user
-  content = Faker::Lorem.word
-  5.times do
-   Activity.create!(content: content, user_id: user.id, course_id: course2.id)
-  end  
-end
-
-course3.user_courses.each do |user_course|
-  user = user_course.user
-  content = Faker::Lorem.word
-  5.times do
-   Activity.create!(content: content, user_id: user.id, course_id: course3.id)
-  end  
-end
-

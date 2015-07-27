@@ -13,10 +13,17 @@
     </description>
 
     <ul>
-      <%= link_to t("course.edit"), edit_admin_course_path(@course),
-        class: "btn btn-primary" %>
+      <% if @course.status.nil? %>
+        <%= link_to t("course.edit"), edit_admin_course_path(@course),
+          class: "btn btn-primary" %>
+      <% end %>
       <%= link_to t("course.delete"), [:admin, @course], method: :delete,
         data: {confirm: t("course.you_sure")}, class: "btn btn-primary" %>     
+      <%= link_to t("course.add_user"), edit_admin_course_assign_trainees_path(@course),
+        class: "btn btn-primary" %>
+      <%= link_to t("course.back"), admin_courses_path,
+        class: "btn btn-primary" %>
+      <%= render "form_button" %>    
     </ul>
   </div>
 
@@ -63,8 +70,3 @@
     <% end %>
   </listuser>
 </div>
-
-<%= link_to t("course.edit"), edit_admin_course_path(@course), class: "btn btn-primary" %>
-<%= link_to t("course.delete"), [:admin, @course], method: :delete,
-  data: {confirm: t("course.you_sure")}, class: "btn btn-primary" %>
-<%= link_to t("course.add_user"), edit_admin_course_assign_trainees_path(@course), class: "btn btn-primary" %>

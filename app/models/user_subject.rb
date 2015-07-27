@@ -3,6 +3,7 @@ class UserSubject < ActiveRecord::Base
   belongs_to :subject
   belongs_to :user
   belongs_to :user_course
+  belongs_to :course
   has_many :user_tasks, dependent: :destroy
   has_many :activities, dependent: :destroy
   

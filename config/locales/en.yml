@@ -104,6 +104,7 @@ en:
     add_user: Add Users to this Course
     wait_admin_start_course: Please wait! Admin will start your course soon.
     user_finished_course: "You finished this course. ^.^"
+    back: Back
   admin:
     dashboard: "Admin Dashboard"
     user:
@@ -174,3 +175,9 @@ en:
     active: Active
     not_active: Not active
     wait_admin_start_subject: Please wait! Admin will start this subject soon.
+  active_course:
+    update_success: Update course success
+    update_fail: Update course fail
+    start: Start
+    finish: Finish
+    finished: Finished
