@@ -1,0 +1,15 @@
+<%= form_for [:admin, @course], url: admin_course_assign_trainees_path,
+  method: :patch do |f| %>
+    <% @users.each do |user| %>
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.label :user_ids, user.name %>
+        </div>
+        <div class="col-md-6">
+          <%= check_box_tag "course[user_ids][]", user.id, @course.users.include?(user) %>
+        </div>
+      </div>
+    <% end %>
+    <%= f.submit t("user_course.add_users"), class: "btn btn-primary" %>
+<% end %>
+<%= will_paginate @users %>
