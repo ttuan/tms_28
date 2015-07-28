@@ -1,6 +1,7 @@
 class Admin::SubjectsController < ApplicationController
   before_action :init_subject, only: [:show, :edit, :update, :destroy]
   before_action :require_admin
+  respond_to :html, :json
 
   def index
     @subjects = Subject.all
@@ -9,13 +10,14 @@ class Admin::SubjectsController < ApplicationController
   def new
     @subject = Subject.new
     @task = @subject.tasks.build
+    respond_modal_with @subject
   end
 
   def create
     @subject = Subject.new subject_params
     if @subject.save
       flash[:success] = t "subjects.subject_success"
-      redirect_to admin_subject_path @subject
+      respond_modal_with @subject, location: admin_root_url
     else
       flash.now[:danger] = t "subjects.subject_not_success"
       render "new"

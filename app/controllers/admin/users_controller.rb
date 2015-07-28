@@ -1,7 +1,8 @@
 class Admin::UsersController < ApplicationController
   before_action :require_admin
   load_and_authorize_resource
-
+  respond_to :html, :json
+  
   def index
     @search = User.search params[:q]
     @users = @search.result.paginate page: params[:page], per_page: Settings.per_page
@@ -11,13 +12,14 @@ class Admin::UsersController < ApplicationController
 
   def new
     @user = User.new
+    respond_modal_with @user
   end
 
   def create
     @user = User.new user_params
     if @user.save
       flash[:success] = t "admin.user.create_success"
-      redirect_to @user
+      respond_modal_with @user, location: admin_root_url
     else
       flash.now[:danger] = t "admin.user.create_fail"
       render "new"
