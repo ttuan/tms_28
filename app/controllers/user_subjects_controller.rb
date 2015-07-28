@@ -2,6 +2,9 @@ class UserSubjectsController < ApplicationController
   before_action :init_course
   
   def show
+    @subject = @user_subject.subject
+    @course = @user_subject.course
+    @course_subject = @course.course_subjects.find_by subject_id: @subject.id
     @user_subject.subject.tasks.each do |task|
       @user_subject.user_tasks.find_or_initialize_by task_id: task.id, 
         course_id: @user_subject.course_id, 

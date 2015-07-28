@@ -102,6 +102,8 @@ en:
     ago: ago
     line: --------
     add_user: Add Users to this Course
+    wait_admin_start_course: Please wait! Admin will start your course soon.
+    user_finished_course: "You finished this course. ^.^"
   admin:
     dashboard: "Admin Dashboard"
     user:
@@ -132,6 +134,9 @@ en:
       manage: "Manage Subject"
       create: "Create New Subject"
       all: "All Subjects"
+    users: "Users"
+    courses: "Courses"
+    subjects: "Subjects"
   user_course:
     removed_user: Removed user
     remove_user_failed: Remove user failed
@@ -168,3 +173,4 @@ en:
     status: Status
     active: Active
     not_active: Not active
+    wait_admin_start_subject: Please wait! Admin will start this subject soon.
