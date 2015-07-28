@@ -7,7 +7,7 @@
   <%= f.label :day_work %>
   <%= f.text_field :day_work, class: "form-control" %>
 
-  <%= t "tasks" %>
+  <%= t "subjects.tasks" %>
   <table>   
     <%= f.fields_for :tasks do |builder| %>
       <%= render "task_fields", f: builder %>

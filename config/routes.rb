@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, except: [:index, :create, :new]
   resources :courses, only: :show do
-    resources :user_subjects, only: [:show, :update]
+    resources :user_subjects, only: [:show, :update] do
+      post "/:status" => "subjects#update", as: :finish_subject
+    end
   end
   
   namespace :admin do
