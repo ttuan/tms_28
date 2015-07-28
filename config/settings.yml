@@ -13,3 +13,9 @@ limit_activities: 10
 complete_task: "Complete task:"
 finished: "finished"
 finish: "finish"
+active:
+  - start
+  - finish
+start: "start"
+value_true: "true"
+value_false: "false"

@@ -152,3 +152,19 @@ en:
     success: "Change member of a course successfully"
     fail: "Fails to change member of course"
     activity_log: Activity log
+  course_subject:
+    start: Start
+    finish: Finish
+    finished: Finished
+    line: --------
+    update_success: Update subject success
+    update_fail: Update subject fail
+    back: Back
+    subject: Subject
+    subject_information: Subject information
+    name: Name
+    description: Description
+    day_work: Day work
+    status: Status
+    active: Active
+    not_active: Not active

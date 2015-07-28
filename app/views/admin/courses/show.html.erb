@@ -1,49 +1,68 @@
 <% provide :title, t("course.course") %>
 
-<h1><%= @course.name %></h1>
+<div class="row">
+  <div class="col-md-8">
+    <subject class="col-md-12">
+      <h1><%= @course.name %></h1>
+      <%= t "course_subject.line" %>
+      <%= render @course_subjects %>
+    </subject>
 
-<h2><%= t "course.list_subjects" %></h2>
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <% @course_subjects.each do |course_subject| %>
-        <th>
-          <%= course_subject.subject.name %>
-          <br>
-          <% if course_subject.active == nil %>
-            <%= t "course.not_active" %>
-          <% elsif course_subject.active? %>
-            <%= t "course.finish" %>
-          <% else %>
-            <%= t "course.active" %>
-          <% end %>
-        </th>
-      <% end %>
-    </tr>
-  </thead>
-</table>
+    <description class="col-md-12">
+      <%= @course.description %>
+    </description>
 
-<h2><%= t "course.supervisor" %></h2>
-<% @user_courses.each do |user_course| %>
-  <% user = user_course.user %>
-  <% if user.supervisor? %>
-    <ul><li><%= link_to user.name, user_path(user) %></li></ul>
-  <% end %>
-<% end %>
-<br>
-
-<h2><%= t "course.list_users" %></h2>
-<% @user_courses.each do |user_course| %>
-  <% user = user_course.user %>
-  <% unless user.supervisor? %>
     <ul>
-      <li><%= link_to user.name, user_path(user) %></li>
-      <%= link_to t("user_course.remove"),
-        admin_course_user_course_path(@course, user_course), method: :delete,
-        data: {confirm: t("user_course.you_sure")}, class: "btn btn-primary" %>
+      <%= link_to t("course.edit"), edit_admin_course_path(@course),
+        class: "btn btn-primary" %>
+      <%= link_to t("course.delete"), [:admin, @course], method: :delete,
+        data: {confirm: t("course.you_sure")}, class: "btn btn-primary" %>     
     </ul>
-  <% end %>
-<% end %>
+  </div>
+
+  <listuser class="col-md-4">
+    <h2><%= t "course.supervisor" %></h2>
+    <% @user_courses.each do |user_course| %>
+      <% if user_course.user.supervisor? %>
+        <div>
+          <div class="col-md-8">
+            <%= link_to gravatar_for(user_course.user,
+              size: Settings.avatar_size_small),
+              user_path(user_course.user) %>
+            <%= link_to user_course.user.name, user_path(user_course.user) %>
+          </div>
+          <div class="col-md-4">
+            <%= link_to t("user_course.remove"),
+              admin_course_user_course_path(@course, user_course),
+              method: :delete, data: {confirm: t("user_course.you_sure")},
+              class: "btn btn-primary btn-xs" %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    <br>
+
+    <h2><%= t "course.list_users" %></h2>
+    <% @user_courses.each do |user_course| %>
+      <% unless user_course.user.supervisor? %>
+        <div>
+          <div class="col-md-8">
+            <%= link_to gravatar_for(user_course.user,
+              size: Settings.avatar_size_small),
+              user_path(user_course.user) %>
+            <%= link_to user_course.user.name, user_path(user_course.user) %>
+          </div>
+          <div class="col-md-4">
+            <%= link_to t("user_course.remove"),
+              admin_course_user_course_path(@course, user_course),
+              method: :delete, data: {confirm: t("user_course.you_sure")},
+              class: "btn btn-primary btn-xs" %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </listuser>
+</div>
 
 <%= link_to t("course.edit"), edit_admin_course_path(@course), class: "btn btn-primary" %>
 <%= link_to t("course.delete"), [:admin, @course], method: :delete,
