@@ -1,13 +1,10 @@
-<% if user_subject.status.nil? %>
-  <%= link_to user_subject.subject.name, "#",
-    class: "btn btn-default btn-lg" %>
-<% elsif user_subject.status? %>
-  <%= link_to user_subject.subject.name,
-    course_user_subject_path(@course, user_subject),
-    class: "btn btn-danger btn-lg" %>
-<% else %>
+<% if user_subject.status? %>
   <%= link_to user_subject.subject.name,
     course_user_subject_path(@course, user_subject),
     class: "btn btn-primary btn-lg" %>
+<% else %>
+  <%= link_to user_subject.subject.name,
+    course_user_subject_path(@course, user_subject),
+    class: "btn btn-danger btn-lg" %>
 <% end %>
 <%= t "course.line" %>
