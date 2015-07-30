@@ -49,7 +49,7 @@ h2 {
   letter-spacing: -1px;
   margin-bottom: 30px;
   font-weight: normal;
-  color: $gray-light;
+  color: green;
 }
 
 p {
@@ -224,4 +224,22 @@ activity {
 
 .basic-infor {
   margin-left: 15px
+}
+
+.form-header {
+  background-color: #5cb85c;
+  color:white;
+  text-align: center;
+  padding:25px 30px;
+}
+
+.input-group {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.task {
+  background-color: lavender;
+  height: 80px;
+  margin: 15px;
 }

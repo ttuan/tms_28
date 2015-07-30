@@ -1,7 +1,15 @@
-<tr>
-  <td><%= f.text_field :name, placeholder: t("subjects.name"),
-            class: "form-control" %></td>
-  <td><%= f.text_field :description, placeholder: t("subjects.description"),
-            class: "form-control" %></td>
-  <td><%= link_to_remove_fields t("subjects.remove_task"), f %></td>
-</tr>
+<div class="row">
+  <div class="col-md-4">
+    <%= f.text_field :name, placeholder: t("subjects.name"),
+      class: "form-control" %>
+  </div>
+
+  <div class="col-md-4">
+  <%= f.text_field :description, placeholder: t("subjects.description"),
+    class: "form-control" %>
+  </div>
+
+  <div class="col-md-4">
+    <%= link_to_remove_fields t("subjects.remove_task"), f %>
+  </div>
+</div>

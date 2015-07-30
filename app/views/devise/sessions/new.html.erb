@@ -3,9 +3,11 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <span class="glyphicon glyphicon-envelope"></span>&nbsp;
       <%= f.label :email %><br>
       <%= f.email_field :email, autofocus: true, class: "form-control" %>
 
+      <span class="glyphicon glyphicon-eye-open"></span>&nbsp;
       <%= f.label :password %>
       <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
 

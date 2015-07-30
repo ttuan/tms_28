@@ -1,16 +1,16 @@
 <% provide :title, t("course_subject.subject") %>
 <h1><%= t "course_subject.subject_information" %></h1>
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= t "course_subject.name" %> : <%= @subject.name %><br>
-    <%= t "course_subject.description" %> : <%= @subject.description %><br>
-    <%= t "course_subject.day_work" %> : <%= @subject.day_work %><br>
+  <div class="col-md-offset-2">
+    <h2><%= t "course_subject.name" %> : <%= @subject.name %><br></h2>
+    <h2><%= t "course_subject.description" %> : <%= @subject.description %><br></h2>
+    <h2><%= t "course_subject.day_work" %> : <%= @subject.day_work %><br></h2>
     <% if @course_subject.active.nil? %>
-      <%= t "course_subject.status" %> : <%= t "course_subject.not_active" %><br>
+      <h2><%= t "course_subject.status" %> : <%= t "course_subject.not_active" %><br></h2>
     <% elsif @course_subject.active? %>
-      <%= t "course_subject.status" %> : <%= t "course_subject.finish" %><br>
+      <h2><%= t "course_subject.status" %> : <%= t "course_subject.finish" %><br></h2>
     <% else %>
-      <%= t "course_subject.status" %> : <%= t "course_subject.active" %><br>
+      <h2><%= t "course_subject.status" %> : <%= t "course_subject.active" %><br></h2>
     <% end %>
   </div>
 </div>

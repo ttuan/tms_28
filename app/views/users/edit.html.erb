@@ -1,27 +1,54 @@
 <% provide :title, t("user.edit") %>
-<h1><%= t "user.edit" %></h1>
+
+<div class="form-header">
+  <h1>
+    <span class="glyphicon glyphicon-user"></span>
+    <%= t "user.edit" %>
+  </h1>
+</div>
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-8 col-md-offset-2">
     <%= form_for(@user, html: {multipart: true}) do |f| %>
       <%= render "shared/error_messages", object: f.object %>
 
-      <%= f.label :name %>
-      <%= f.text_field :name, class: "form-control" %>
+      <div class="input-group col-md-12">
+        <span class="glyphicon glyphicon-user"></span>&nbsp;
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control",
+          placeholder: t("form.enter_name") %>
+      </div>
 
-      <%= f.label :email %>
-      <%= f.email_field :email, class: "form-control" %>
+      <div class="input-group col-md-12">
+        <span class="glyphicon glyphicon-envelope"></span>&nbsp;  
+        <%= f.label :email %>
+        <%= f.email_field :email, class: "form-control",
+          placeholder: t("form.enter_email") %>
+      </div>
 
-      <%= f.label :password %>
-      <%= f.password_field :password, class: "form-control" %>
+      <div class="input-group col-md-12">
+        <span class="glyphicon glyphicon-eye-open"></span>&nbsp;  
+        <%= f.label :password %>
+        <%= f.password_field :password, class: "form-control",
+          placeholder: t("form.enter_password") %>
+      </div>
 
-      <%= f.label :password_confirmation, t("user.confirmation") %>
-      <%= f.password_field :password_confirmation, class: "form-control" %>
+      <div class="input-group col-md-12">
+        <span class="glyphicon glyphicon-eye-open"></span>&nbsp;  
+        <%= f.label :password_confirmation, t("user.confirmation") %>
+        <%= f.password_field :password_confirmation, class: "form-control",
+          placeholder: t("form.enter_password") %>
+      </div>
+      
+      <div class="input-group col-md-12">
+        <span class="glyphicon glyphicon-pencil"></span>&nbsp;
+        <%= f.file_field :avatar, accept: Settings.image_type_accept %>
+      </div>
 
-      <%= f.file_field :avatar, accept: Settings.image_type_accept %>
-      <br>
-      <%= f.submit t("user.update"), class: "btn btn-primary" %>
-      <br>
+      <div class="input-group col-md-12">
+        <%= f.submit t("user.update"), class: "btn btn-success btn-block" %>
+      </div>
+
     <% end %>
   </div>
 </div>

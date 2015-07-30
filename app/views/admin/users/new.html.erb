@@ -1,25 +1,53 @@
 <% provide :title, t("admin.user.new") %>
-<h1 class="center"><%= t "admin.user.new" %></h1>
+
+<div class="form-header">
+  <h1>
+    <span class="glyphicon glyphicon-user"></span>
+    <%= t "admin.user.new" %>
+  </h1>
+</div>
+
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-8 col-md-offset-2">
     <%= form_for [:admin, @user] do |f| %>
       <%= render "shared/error_messages", object: f.object %>
 
-      <%= f.label :name %>
-      <%= f.text_field :name, class: "form-control" %>
+      <div class="input-group col-md-12">
+        <span class="glyphicon glyphicon-user"></span>&nbsp;
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control",
+          placeholder: t("form.enter_name") %>
+      </div>
 
-      <%= f.label :email %>
-      <%= f.text_field :email, class: "form-control" %>
+      <div class="input-group col-md-12">
+        <span class="glyphicon glyphicon-envelope"></span>&nbsp;
+        <%= f.label :email %>
+        <%= f.text_field :email, class: "form-control",
+          placeholder: t("form.enter_email") %>
+      </div>
 
-      <%= f.label :password %>
-      <%= f.password_field :password, class: "form-control" %>
+      <div class="input-group col-md-12">
+        <span class="glyphicon glyphicon-eye-open"></span>&nbsp;
+        <%= f.label :password %>
+        <%= f.password_field :password, class: "form-control",
+          placeholder: t("form.enter_password") %>
+      </div>
 
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, class: "form-control" %>
+      <div class="input-group col-md-12">
+        <span class="glyphicon glyphicon-eye-open"></span>&nbsp;
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, class: "form-control",
+          placeholder: t("form.enter_password") %>
+      </div>
+      
+      <div class="input-group col-md-12 text-danger">   
+        <%= f.check_box :supervisor %>&nbsp;
+        <strong><%= t "admin.user.set_admin" %></strong><br>
+      <div class="input-group col-md-12">
 
-      <%= f.check_box :supervisor %><%= t "admin.user.set_admin" %>
-
-      <%= f.submit t("admin.user.create"), class: "btn btn-primary" %>
+      <div class="input-group col-md-12">
+        <%= f.submit t("admin.user.create"), class: "btn btn-success btn-block" %>
+      </div>
     <% end %>
     <br><br>
   </div>
