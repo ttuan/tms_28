@@ -3,8 +3,7 @@ class Admin::AssignTraineesController < ApplicationController
   before_action :init_course, only: [:edit, :update]
 
   def edit
-    @users = User.avaiable_to_add(@course.id).paginate page: params[:page],
-      per_page: Settings.per_page
+    @users = User.avaiable_to_add @course.id
   end
 
   def update

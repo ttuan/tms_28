@@ -16,6 +16,9 @@ finish: "finish"
 active:
   - start
   - finish
+active_course:
+  - start
+  - finish
 start: "start"
 value_true: "true"
 value_false: "false"

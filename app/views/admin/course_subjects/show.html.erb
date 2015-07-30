@@ -15,6 +15,6 @@
   </div>
 </div>
 
-<%= render "form_button" %>
+<%= render "form_button" unless @course.status.nil? %>
 <%= link_to t("course_subject.back"), [:admin, @course],
   class: "btn btn-primary" %>
