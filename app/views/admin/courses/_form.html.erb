@@ -1,27 +1,40 @@
 <%= form_for [:admin, @course] do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name, class: "form-control" %>
+  <%= render "shared/error_messages", object: f.object %>
 
-  <%= f.label :description %>
-  <%= f.text_area :description, class: "form-control" %>
+  <div class="input-group col-md-12">
+    <span class="glyphicon glyphicon-star"></span>&nbsp;
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control",
+      placeholder: t("form.enter_name") %>
+  </div>
 
-  <% @subjects.each do |subject| %>
-    <div class="row">
-      <div class="col-md-6">
-        <%= f.label :subject_ids, subject.name %>
+  <div class="input-group col-md-12">
+    <span class="glyphicon glyphicon-star"></span>&nbsp;
+    <%= f.label :description %>
+    <%= f.text_area :description, class: "form-control",
+      placeholder: t("form.enter_description") %>
+  </div>
+
+  <div class="input-group col-md-12">
+    <% @subjects.each do |subject| %>
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.label :subject_ids, subject.name %>
+        </div>
+        <div class="col-md-6 center">
+          <%= check_box_tag :subject_ids, subject.id, 
+            @course.subjects.include?(subject), name: "course[subject_ids][]" %>
+        </div>
       </div>
-      <div class="col-md-6">
-        <%= check_box_tag :subject_ids, subject.id, 
-          @course.subjects.include?(subject), name: "course[subject_ids][]" %>
-      </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 
-  <% if @course.save %>
-    <%= f.submit t("course.save_changes"), class: "btn btn-primary" %>
-  <% else %>
-    <%= f.submit t("course.create_course"), class: "btn btn-primary" %>
-  <% end %>
+  <div class="input-group col-md-12">
+    <% if @course.save %>
+      <%= f.submit t("course.save_changes"), class: "btn btn-success btn-block" %>
+    <% else %>
+      <%= f.submit t("course.create_course"), class: "btn btn-success btn-block" %>
+    <% end %>
+  </div>
 
-  <br><br><br>
 <% end %>

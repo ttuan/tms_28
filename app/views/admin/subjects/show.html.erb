@@ -1,20 +1,24 @@
 <% provide :title, t("subjects.subject") %>
 <h1><%= t "subjects.subject_information" %></h1>
+
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= t "subjects.name" %> : <%= @subject.name %><br>
-    <%= t "subjects.description" %> : <%= @subject.description %><br>
-    <%= t "subjects.day_work" %> : <%= @subject.day_work %><br>
-    <ul>
-      <% @subject.tasks.each do |task| %>
-        <li>
-          <%= task.name %>
-          <%= task.description %>
-        </li>
-      <% end %>
-    </ul>
+  <div class="col-md-offset-2">
+    <h2><%= t "subjects.name" %> : <%= @subject.name %><br></h2>
+    <h2><%= t "subjects.description" %> : <%= @subject.description %><br></h2>
+    <h2><%= t "subjects.day_work" %> : <%= @subject.day_work %><br></h2>
   </div>
 </div>
+
+<div class="row">
+  <% @subject.tasks.each do |task| %>
+    <div class="task col-md-1 center">
+      <h3><%= task.name %></h3>
+     </div>
+  <% end %>
+</div>
+  
+<br><br>
+
 <%= link_to t("subjects.edit"), edit_admin_subject_path(@subject), class: "btn btn-primary" %>
 <%= link_to t("subjects.delete"), [:admin, @subject], method: :delete,
   data: {confirm: t("subjects.you_sure")}, class: "btn btn-primary" %>

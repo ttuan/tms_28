@@ -106,7 +106,7 @@ en:
     user_finished_course: "You finished this course. ^.^"
     back: Back
   admin:
-    dashboard: "Admin Dashboard"
+    dashboard: "Dashboard"
     user:
       manage: "Manage Users"
       create: "Create User"
@@ -129,11 +129,11 @@ en:
       search: "Search"
     course:
       manage: "Manage Course"
-      create: "Create New Course"
+      create: "New Course"
       all: "All Courses"
     subject:
       manage: "Manage Subject"
-      create: "Create New Subject"
+      create: "New Subject"
       all: "All Subjects"
     users: "Users"
     courses: "Courses"
@@ -181,3 +181,8 @@ en:
     start: Start
     finish: Finish
     finished: Finished
+  form:
+    enter_name: Enter name
+    enter_email: Enter email
+    enter_password: Enter password
+    enter_description: Enter description

@@ -1,11 +1,9 @@
 <% provide :title, t("subjects.all_subjects") %>
 
 <h1><%= t "subjects.all_subjects" %></h1>
-<% @subjects.each do |subject| %>
-  <ul>
-    <li><%= link_to subject.name, admin_subject_path(subject) %></li>
-    <%= link_to t("subjects.edit"), edit_admin_subject_path(subject), class: "btn btn-primary" %>
-    <%= link_to t("subjects.delete"), [:admin, subject], method: :delete,
-      data: {confirm: t("subjects.you_sure")}, class: "btn btn-primary" %>
-  </ul>
-<% end %>
+<ol>
+  <% @subjects.each do |subject| %>
+    <h2><li class="text-danger"><%= link_to subject.name,
+      admin_subject_path(subject) %></li></h2>
+  <% end %>
+</ol>
