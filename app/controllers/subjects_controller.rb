@@ -4,6 +4,9 @@ class SubjectsController < ApplicationController
   def update
     if @user_subject.update_attributes status: true
       flash[:success] = t "subjects.subject_finised"
+      content = Settings.complete_subject + @user_subject.subject.name
+      create_activity @user_subject.user_id, content,
+        @user_subject.id, @user_subject.course_id
     else
       flash.now[:danger] = t "subjects.subject_finish_failed"
     end

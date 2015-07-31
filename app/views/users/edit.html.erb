@@ -9,7 +9,7 @@
 
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
-    <%= form_for(@user, html: {multipart: true}) do |f| %>
+    <%= form_for @user, remote: request.xhr?, html: {multipart: true, data: {modal: true}} do |f| %>
       <%= render "shared/error_messages", object: f.object %>
 
       <div class="input-group col-md-12">

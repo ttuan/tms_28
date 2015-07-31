@@ -1,6 +1,7 @@
 class Admin::AssignTraineesController < ApplicationController
   before_action :require_admin
   before_action :init_course, only: [:edit, :update]
+  before_action :check_param, only: :update
 
   def edit
     @users = User.avaiable_to_add @course.id
@@ -22,5 +23,9 @@ class Admin::AssignTraineesController < ApplicationController
 
   def init_course
     @course = Course.find params[:course_id]
+  end
+
+  def check_param
+    redirect_to :back if params[:course].nil?
   end
 end

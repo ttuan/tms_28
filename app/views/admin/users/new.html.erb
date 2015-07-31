@@ -9,7 +9,7 @@
 
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
-    <%= form_for [:admin, @user] do |f| %>
+    <%= form_for [:admin, @user], remote: request.xhr?, html: {data: {modal: true}} do |f| %>
       <%= render "shared/error_messages", object: f.object %>
 
       <div class="input-group col-md-12">

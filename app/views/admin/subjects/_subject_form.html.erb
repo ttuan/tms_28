@@ -1,6 +1,5 @@
-<%= form_for [:admin, @subject] do |f| %>
+<%= form_for [:admin, @subject], remote: request.xhr?, html: {data: {modal: true}} do |f| %>
   <%= render "shared/error_messages", object: f.object %>
-
   <div class="input-group col-md-12">
     <span class="glyphicon glyphicon-star"></span>&nbsp;
     <%= f.label :name %>

@@ -20,7 +20,7 @@ class Admin::SubjectsController < ApplicationController
       respond_modal_with @subject, location: admin_root_url
     else
       flash.now[:danger] = t "subjects.subject_not_success"
-      render "new"
+      respond_modal_with @subject, location: new_admin_subject_path
     end
   end
 
