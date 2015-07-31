@@ -22,7 +22,7 @@ class Admin::UsersController < ApplicationController
       respond_modal_with @user, location: admin_root_url
     else
       flash.now[:danger] = t "admin.user.create_fail"
-      render "new"
+      respond_modal_with @user, location: new_admin_user_path
     end
   end
 

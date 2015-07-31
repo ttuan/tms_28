@@ -1,4 +1,5 @@
 <% provide :title, @user.name %>
+<%= javascript_include_tag "user_show_profile", "data-turbolinks-track": true %>
 <%= render "user_info" %>
 
 <div class="row">

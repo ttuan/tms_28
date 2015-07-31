@@ -20,7 +20,7 @@ class Admin::CoursesController < ApplicationController
       respond_modal_with @course, location: admin_root_path
     else
       flash.now[:danger] = t "course.create_course_failed"
-      render "new"
+      respond_modal_with @course, location: new_admin_course_path
     end
   end
 

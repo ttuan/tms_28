@@ -9,7 +9,8 @@
   <h1 class="profile">
     <%= t "user.profile" %>
   </h1>
-  <%= link_to t("user.edit"), edit_user_path(@user), class: "btn btn-primary" if can? :edit, @user %>
+  <%= link_to t("user.edit"), edit_user_path(@user), class: "btn btn-primary",
+    data: {modal: true} if can? :edit, @user %>
       
   <% if can? :destroy, @user %>
     <%= link_to t("admin.user.delete"), admin_user_path(@user), class: "btn btn-primary",
