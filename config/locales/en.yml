@@ -186,3 +186,7 @@ en:
     enter_email: Enter email
     enter_password: Enter password
     enter_description: Enter description
+  mailer:
+    subject: "[TMS] Account created"
+    hi: "Hi "
+    notice: "Your account have been created with password is your name. Please log in and change. Thank you!"

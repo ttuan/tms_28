@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 20150716012943) do
     t.string   "name"
     t.string   "description"
     t.boolean  "status"
+    t.date     "start_date"
+    t.integer  "day_work"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
