@@ -1,6 +1,8 @@
 class Course < ActiveRecord::Base
   after_update :create_user_subjects, unless: :check_status
   before_update :send_mail_assign
+  before_update :init_start_date, unless: :check_status
+  before_save :init_day_work
 
   has_many :activities, dependent: :destroy
   has_many :course_subjects, dependent: :destroy
@@ -30,5 +32,21 @@ class Course < ActiveRecord::Base
 
   def send_mail_assign
     EmailAssignTrainees.perform_async self.id
+  end
+
+  def init_start_date
+    self.start_date = Date.today
+    self.users.each do |user|
+      Delayed::Job.enqueue ReportAdminBeforeFinishJob.new(self.id, user.id),
+        run_at: number_delay_day.days.from_now if user.supervisor?
+    end
+  end
+
+  def number_delay_day
+    self.day_work - Settings.delay_days
+  end
+
+  def init_day_work
+    self.day_work = self.subjects.map(&:day_work).sum
   end
 end

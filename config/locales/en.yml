@@ -196,3 +196,15 @@ en:
       create_account: "Your account have been created with password is your name. Please log in and change. Thank you!"
       assign_trainee: "You have been added to course :"
       remove_user: "You have been removed from course:"
+    notice: "Your account have been created with password is your name. Please log in and change. Thank you!"
+    report_admin_before_finish: Report course before 2 days
+    course:
+      status: Status
+      finished: Finished
+      started: Started and not finish
+      dear: Dear
+      name: Course name
+    course_subject:
+      not_start: Not start
+      started: Started and not finish
+      finished: Finished
