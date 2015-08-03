@@ -187,6 +187,12 @@ en:
     enter_password: Enter password
     enter_description: Enter description
   mailer:
-    subject: "[TMS] Account created"
+    subject:
+      create_account: "[TMS] Account created"
+      assign_trainee: "[TMS] Assign Trainee"
+      remove_user: "[TMS] Remove From Course"
     hi: "Hi "
-    notice: "Your account have been created with password is your name. Please log in and change. Thank you!"
+    notice:
+      create_account: "Your account have been created with password is your name. Please log in and change. Thank you!"
+      assign_trainee: "You have been added to course :"
+      remove_user: "You have been removed from course:"
