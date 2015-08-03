@@ -18,6 +18,7 @@ class Admin::UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
+      UserMailer.create_account(@user).deliver_now
       flash[:success] = t "admin.user.create_success"
       respond_modal_with @user, location: admin_root_url
     else

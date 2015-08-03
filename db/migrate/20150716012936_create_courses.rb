@@ -4,6 +4,8 @@ class CreateCourses < ActiveRecord::Migration
       t.string :name
       t.string :description
       t.boolean :status
+      t.date :start_date
+      t.integer :day_work
 
       t.timestamps null: false
     end
