@@ -13,6 +13,12 @@ class User < ActiveRecord::Base
 
   scope :avaiable_to_add, ->course_id{where "id NOT IN (SELECT user_id FROM User_Courses WHERE active = 'true' 
     AND course_id != ?)", course_id}
+  scope :supervisors, ->{where supervisor: true}
+
+  def self.change
+    user = User.find 1
+    user.update_attributes(name: "tuantuantuan")
+  end
 
   private
   def send_email_created

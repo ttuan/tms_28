@@ -1,0 +1,14 @@
+<h1><%= t "static_pages.framgia" %></h1>
+
+<h2><%= t "mailer.daily_report" %></h2>
+
+<p> Hi <%= @supervisor.name %></p>
+
+<p>
+  <ul>
+    <% @reports.each do |report| %>  
+      <% user = User.find report[:user_id] %>
+      <li><%= user.name %> : <%= report.content %></li>
+    <% end %>  
+  </ul>
+</p>

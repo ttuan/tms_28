@@ -20,6 +20,7 @@ gem "fog"
 gem "cancancan"
 gem "ransack"
 gem "sidekiq"
+gem "whenever", require: false
 
 group :development, :test do
   gem "byebug"
