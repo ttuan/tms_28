@@ -1,0 +1,13 @@
+<h1><%= t "static_pages.framgia" %></h1>
+
+<h2><%= t "mailer.daily_report" %></h2>
+
+<p><%= @supervisor.name %></p>
+
+<p>
+  <ul>
+    <% @activities.each do |activity| %>  
+      <li><%= activity.user.name %> : <%= activity.content %></li>
+    <% end %>  
+  </ul>
+</p>

@@ -21,4 +21,10 @@ class UserMailer < ApplicationMailer
     @user = user
     mail to: user.email, subject: I18n.t("mailer.report_admin_before_finish")
   end
+
+  def report_in_day supervisor
+    @activities = Activity.in_day Date.today
+    @supervisor = supervisor
+    mail to: supervisor.email, subject: I18n.t("mailer.subject.report_in_day", today: Date.today)
+  end
 end

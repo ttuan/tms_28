@@ -191,6 +191,7 @@ en:
       create_account: "[TMS] Account created"
       assign_trainee: "[TMS] Assign Trainee"
       remove_user: "[TMS] Remove From Course"
+      report_in_day: "[TMS] Report in Day %{today}"
     hi: "Hi "
     notice:
       create_account: "Your account have been created with password is your name. Please log in and change. Thank you!"
@@ -208,3 +209,4 @@ en:
       not_start: Not start
       started: Started and not finish
       finished: Finished
+    daily_report: "Daily Report"
