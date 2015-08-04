@@ -19,6 +19,7 @@ gem "mini_magick"
 gem "fog"
 gem "cancancan"
 gem "ransack"
+gem "sidekiq"
 
 group :development, :test do
   gem "byebug"

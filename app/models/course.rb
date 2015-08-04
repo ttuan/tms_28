@@ -1,5 +1,6 @@
 class Course < ActiveRecord::Base
   after_update :create_user_subjects, unless: :check_status
+  before_update :send_mail_assign
 
   has_many :activities, dependent: :destroy
   has_many :course_subjects, dependent: :destroy
@@ -25,5 +26,9 @@ class Course < ActiveRecord::Base
 
   def check_status
     self.status? || self.status.nil?
+  end
+
+  def send_mail_assign
+    EmailAssignTrainees.perform_async self.id
   end
 end
