@@ -25,3 +25,4 @@ value_false: "false"
 complete_subject: "Complete subject:"
 user_show_js:
   - user_show_profile.js
+delay_days: 2

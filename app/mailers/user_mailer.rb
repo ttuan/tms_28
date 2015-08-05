@@ -15,4 +15,10 @@ class UserMailer < ApplicationMailer
     @course = course
     mail to: user.email, subject: I18n.t("mailer.subject.remove_user")
   end
+
+  def report_admin_before_finish course, user
+    @course = course
+    @user = user
+    mail to: user.email, subject: I18n.t("mailer.report_admin_before_finish")
+  end
 end

@@ -1,0 +1,24 @@
+<h1><%= t "mailer.course.dear" %>, <%= @user.name %></h1>
+<h1><%= t "mailer.course.name" %> : <%= @course.name %></h1>
+
+<h1>
+  <%= t "mailer.course.status" %> : 
+  <% if @course.status? %>
+    <%= t "mailer.course.finished" %>
+  <% else %>
+    <%= t "mailer.course.started" %>
+  <% end %>
+</h1>
+
+<% @course.course_subjects.each do |course_subject| %>
+  <h2>
+    <%= course_subject.subject.name %> : 
+    <% if course_subject.active.nil? %>
+      <%= t "mailer.course_subject.not_start" %>
+    <% elsif course_subject.active? %>
+      <%= t "mailer.course_subject.finished" %>
+    <% else %>
+      <%= t "mailer.course_subject.started" %>
+    <% end %>
+  </h2>
+<% end %>
