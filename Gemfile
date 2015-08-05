@@ -21,6 +21,7 @@ gem "cancancan"
 gem "ransack"
 gem "sidekiq"
 gem "delayed_job_active_record"
+gem "whenever", require: false
 
 group :development, :test do
   gem "byebug"

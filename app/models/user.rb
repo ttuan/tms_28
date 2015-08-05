@@ -13,6 +13,13 @@ class User < ActiveRecord::Base
 
   scope :avaiable_to_add, ->course_id{where "id NOT IN (SELECT user_id FROM User_Courses WHERE active = 'true' 
     AND course_id != ?)", course_id}
+  scope :supervisors, ->{where supervisor: true}
+
+  def self.report_in_day
+    self.supervisors.each do |supervisor|
+      EmailReportInDay.perform_async supervisor.id
+    end
+  end
 
   private
   def send_email_created
