@@ -14,6 +14,8 @@ class Course < ActiveRecord::Base
   validates :name, presence: true
   validates :description, presence: true
 
+  scope :course_active, ->{where status: true}
+  
   private
   def create_user_subjects
     self.user_courses.each do |user_course|

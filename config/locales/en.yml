@@ -210,3 +210,5 @@ en:
       started: Started and not finish
       finished: Finished
     daily_report: "Daily Report"
+    report: "Monthly report"
+    list_user: "List user assign in month"

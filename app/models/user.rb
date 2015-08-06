@@ -21,6 +21,9 @@ class User < ActiveRecord::Base
     end
   end
 
+  scope :list_supervisor, ->course_id{where "supervisor = ? AND users.id IN
+    (SELECT user_id FROM User_Courses WHERE course_id = ?)", true, course_id}
+
   private
   def send_email_created
     EmailCreatedAccount.perform_async self.id

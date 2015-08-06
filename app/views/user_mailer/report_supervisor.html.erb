@@ -1,0 +1,9 @@
+<h1><%= t "static_pages.framgia" %></h1>
+
+<p><%= t "mailer.hi" %> : <%= @supervisor.name %>
+<p><%= t "mailer.list_user" %>	
+<br><br>
+
+<% @users.each do |user| %>
+  <%= user.name %><br>
+<% end %>
