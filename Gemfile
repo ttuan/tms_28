@@ -22,8 +22,11 @@ gem "ransack"
 gem "sidekiq"
 gem "delayed_job_active_record"
 gem "whenever", require: false
+gem "factory_girl_rails", "~> 4.0"
 
 group :development, :test do
+  gem "rspec-rails"
+  gem "capybara"
   gem "byebug"
   gem "web-console", "~> 2.0"
   gem "spring"
