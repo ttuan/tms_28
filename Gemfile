@@ -26,6 +26,7 @@ gem "factory_girl_rails", "~> 4.0"
 
 group :development, :test do
   gem "rspec-rails"
+  gem "shoulda-matchers"
   gem "capybara"
   gem "byebug"
   gem "web-console", "~> 2.0"
